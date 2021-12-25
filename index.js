@@ -10,6 +10,8 @@ const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
 
+const PORT = 5000 || process.env.PORT;
+
 mongoose
   .connect(
     "mongodb+srv://abhishek:1511Neymar!@cluster0.jxvmi.mongodb.net/ecommerce?retryWrites=true&w=majority",
@@ -32,6 +34,6 @@ app.use("/cart", cartRoute);
 app.use("/order", orderRoute);
 app.use("/checkout", stripeRoute);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("server is up");
 });
